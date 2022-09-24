@@ -1,0 +1,50 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=<% lang_charset() %>" />
+<script language="javascript" type="text/javascript">
+/* qutoe the script file funcs.js will increase the page loading time, and the page will show blank, so copy the 
+function goto_home_page() here */
+function goto_home_page()
+{
+	if( top.location.href.indexOf("adv_index.htm") != -1 )
+	{
+		top.location.href="adv_index.htm";	
+	}
+	else if( top.location.href.indexOf("BRS_index.htm") != -1||(top.location.href.indexOf("adv_index.htm") != -1&& top.setup_wizard_flag == 1) )
+	{
+		top.location.href="BRS_hdd_success.htm";
+	}
+	else{
+		top.location.href="index.htm";	
+	}
+}
+
+var jp_multiPPPoE = "<% cfg_get("jp_multiPPPoE") %>";
+var language_change_status="<% lang_change_status() %>";
+function loadvalue()
+{
+//	var downloading_div = document.getElementById("downloading_div");
+//	var download_error_div = document.getElementById("download_error_div");
+//	var pls_wait_div = document.getElementById("pls_wait_div");
+
+	if(language_change_status == "1") // 1:No Internet Connection
+	{
+		if(jp_multiPPPoE=="1")
+			alert("$ml_noInternet");
+		else
+			alert("$auto_upg_nowan_head");
+	}
+	else if(language_change_status == "2") // 2:download failed
+	{
+		alert("$ml_failDownload");
+	}
+	// 4: md5 error; 5: save/reload error
+
+	goto_home_page();
+}
+</script>
+</head>
+<body bgcolor="#ffffff" onload="loadvalue()">
+</body>
+</html>

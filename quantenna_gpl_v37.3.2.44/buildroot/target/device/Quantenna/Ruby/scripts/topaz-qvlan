@@ -1,0 +1,71 @@
+#!/bin/sh
+
+vbr_name_pref="vbr"
+vbr_dirs="/sys/devices/virtual/net/vbr*/"
+
+cmd=$1
+interface=$2
+vid=$3
+
+usage()
+{
+	echo "Usage:"
+	echo "	qvlan {bind | unbind | passthru | unpassthru} <wifi interface> <vlan id>"
+	echo ""
+}
+
+bind()
+{
+	echo "set vlan $interface bind $vid" >/sys/devices/qdrv/control
+	return $?
+}
+
+unbind()
+{
+	echo "set vlan $interface unbind $vid" >/sys/devices/qdrv/control
+	return $?
+}
+
+passthru()
+{
+	echo "set vlan $interface passthru $vid" >/sys/devices/qdrv/control
+	return $?
+}
+
+unpassthru()
+{
+	echo "set vlan $interface unpassthru $vid" >/sys/devices/qdrv/control
+	return $?
+}
+
+enable()
+{
+	echo "set vlan enable" >/sys/devices/qdrv/control
+}
+
+disable()
+{
+	echo "set vlan disable" >/sys/devices/qdrv/control
+}
+
+if [ "$cmd" = "bind" ]
+then
+	bind $interface $vid
+elif [ "$cmd" = "unbind" ]
+then
+	unbind $interface $vid
+elif [ "$cmd" = "passthru" ]
+then
+	passthru $interface $vid
+elif [ "$cmd" = "unpassthru" ]
+then
+	unpassthru $interface $vid
+elif [ "$cmd" = "enable" ]
+then
+	enable
+elif [ "$cmd" = "disable" ]
+then
+	disable
+else
+	usage
+fi

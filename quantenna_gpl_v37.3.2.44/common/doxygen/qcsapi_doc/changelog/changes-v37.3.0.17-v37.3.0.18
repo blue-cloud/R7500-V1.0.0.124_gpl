@@ -1,0 +1,16 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_17_TO_v37_3_0_18 Version v37.3.0.17 to version v37.3.0.18 changes
+ *
+ * \subsection v37_3_0_17_TO_v37_3_0_18Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.17 and v37.3.0.18
+ *  - \ref qcsapi_wifi_rfstatus
+ *    - Old prototype: int qcsapi_wifi_rfstatus(const char *ifname, qcsapi_unsigned_int *rfstatus);
+ *    - New prototype: int qcsapi_wifi_rfstatus(qcsapi_unsigned_int *rfstatus);
+ *  - \ref qcsapi_wifi_rfenable
+ *    - Old prototype: int qcsapi_wifi_rfenable(const char *ifname, const qcsapi_unsigned_int onoff);
+ *    - New prototype: int qcsapi_wifi_rfenable(const qcsapi_unsigned_int onoff);
+ */
+

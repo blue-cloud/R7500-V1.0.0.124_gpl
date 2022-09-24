@@ -1,0 +1,204 @@
+#!/bin/ash
+
+usage() {
+	[ $# -ne 0 ] && echo "$@"
+	echo "Usage:"
+	echo "    mu set <mac addr1> <mac addr2>"
+	echo "           <group> <rank>                     - Creates <group> of two STA's indetified by MAC addresses and set its <rank>"
+	echo "    mu get <mac addr>                         - Get group and user position for the node identified by the mac address"
+	echo "    mu clr <group>                            - Clears group identified by <group>"
+	echo "    mu dbg <debug_level>                      - Set debug verbosity level"
+	echo "    mu mcs <SS1[15-12]MCS1[11-8]SS0[7-4]MCS0[3-0]>"
+	echo "                                              - Assign fixed MCS and SS for user0 and user1"
+	echo "    mu alg_precode iteration                  - use iteration algorithm for precoding"
+	echo "    mu alg_precode project                    - use projective algorithm for precoding"
+	echo "    mu alg_rank iteration                     - use iteration algorithm for ranking"
+	echo "    mu alg_rank project                       - use projective algorithm for ranking"
+	echo "    mu enable                                 - enable MU transmission"
+	echo "    mu disable                                - disable MU transmission"
+	echo "    mu eq <<enable|1>|<disable|0>>            - enable/disable equalizer"
+	echo "    mu dsp_dbg_lvl <debug_level>              - set DSP dbg level"
+	echo "    mu dsp_dbg_flg <flag_name>                - set DSP dbg flags:FREEZE, ZSTA1, ZSTA2,"
+	echo "                                                                  SNR, CMAT, PRECMAT, RANK,"
+	echo "                                                                  STUFFMEM, ACTFRM, MATPROC,"
+	echo "									VANGLE, RANK_INFO, PRINT_ALL, OFF"
+	exit 1
+}
+
+get_dspdbgflg() {
+	dbg_flg=0
+	# values are parsed according to "txbf_mbox.h"
+	while [ $# -gt 0 ]
+	do
+		lowercase=`echo $1 | awk '{print tolower($1);}'`
+		hexval="0x0"
+		shift
+		case "$lowercase" in
+		freeze)
+			# MU_QMAT_FREEZE
+			dbg_flg=$(($dbg_flg | 0x00000001))
+			;;
+		zsta1)
+			# MU_QMAT_ZERO_STA1
+			dbg_flg=$(($dbg_flg | 0x00000010))
+			;;
+		zsta2)
+			# MU_QMAT_ZERO_STA2
+			dbg_flg=$(($dbg_flg | 0x00000020))
+			;;
+		cmat)
+			# MU_QMAT_PRINT_CHMAT
+			dbg_flg=$(($dbg_flg | 0x00000100))
+			;;
+		precmat)
+			# MU_QMAT_PRECMAT
+			dbg_flg=$(($dbg_flg | 0x00000200))
+			;;
+		snr)
+			# MU_QMAT_PRINT_SNR
+			dbg_flg=$(($dbg_flg | 0x00000400))
+			;;
+		rank)
+			# MU_QMAT_PRINT_RANK
+			dbg_flg=$(($dbg_flg | 0x00000800))
+			;;
+		stuffmem)
+			# MU_QMAT_PRINT_STUFFMEM
+			dbg_flg=$(($dbg_flg | 0x00001000))
+			;;
+		actfrm)
+			# MU_QMAT_PRINT_ACTFRM
+			dbg_flg=$(($dbg_flg | 0x00002000))
+			;;
+		matproc)
+			# MU_MATLAB_PROCESS
+			dbg_flg=$(($dbg_flg | 0x00004000))
+			;;
+		vangle)
+			# MU_V_ANGLE
+			dbg_flg=$(($dbg_flg | 0x00008000))
+			;;
+		print_all)
+			# set all dsp print flag options
+			dbg_flg=$(($dbg_flg | 0x00003F00))
+			;;
+		rank_info)
+			# MU_PRINT_RANK_INFO
+			dbg_flg=$(($dbg_flg | 0x00100000))
+			;;
+		off)
+			# set to 0
+			dbg_flg=0
+			return 0
+			;;
+		*)
+			echo "Unknown dsp debug flag"
+			return 1
+			;;
+		esac
+	done
+	return 0
+}
+
+call_qcsapi get_swfeat_list|grep -q "MU-MIMO"
+if [ $? -ne 0 ]
+then
+	echo "MU-MIMO is not supported on this device"
+	exit 1
+fi
+
+[ $# -eq 0 ] && usage
+
+wifi_mode=`get_wifi_config wifi0 mode`
+
+case "$1" in
+	set)
+		[ $# != 5 ] && usage
+		qdrvcmd mu set grp $2 $3 $4 $5
+		;;
+	get)
+		[ $# != 2 ] && usage
+		qdrvcmd mu get grp $2
+		;;
+	clr)
+		[ $# != 2 ] && usage
+		qdrvcmd mu clr grp $2
+		;;
+	dbg)
+		[ $# != 2 ] && usage
+		iwpriv wifi0 mu_dbg_lvl_set $2
+		;;
+	mcs)
+		[ $# != 2 ] && usage
+		iwpriv wifi0 mu_tx_rate_set $2
+		;;
+	enable)
+		iwpriv wifi0 mu_enable_set 1
+		if [ "$wifi_mode" == "ap" ]
+		then
+			iwpriv wifi0 scs_set 0
+			iwpriv wifi0 airfair 0
+		else
+			iwpriv wifi0 set_vht_nss_cap 2
+		fi
+		;;
+	disable)
+		iwpriv wifi0 mu_enable_set 0
+		if [ "$wifi_mode" == "ap" ]
+		then
+			iwpriv wifi0 scs_set 1
+			iwpriv wifi0 airfair 1
+		else
+			iwpriv wifi0 set_vht_nss_cap 4
+		fi
+		;;
+	eq)
+		if [ "$wifi_mode" == "ap" ]
+		then
+			iwpriv wifi0 mu_set_use_eq 0
+		fi
+		case "$2" in
+		enable|1)	iwpriv wifi0 mu_set_use_eq 1;;
+		disable|0)	iwpriv wifi0 mu_set_use_eq 0;;
+		*)		usage;;
+		esac
+		;;
+	alg_precode)
+		[ $# -ne 2 ] && usage
+		case "$2" in
+		iteration) iwpriv wifi0 dsp_prc_alg_set 2 ;;
+		project)   iwpriv wifi0 dsp_prc_alg_set 1 ;;
+		*)         usage                          ;;
+		esac
+		;;
+	alg_rank)
+		[ $# -ne 2 ] && usage
+		case "$2" in
+		iteration) iwpriv wifi0 dsp_rnk_alg_set 2 ;;
+		project)   iwpriv wifi0 dsp_rnk_alg_set 1 ;;
+		*)         usage                          ;;
+		esac
+		;;
+	dsp_dbg_lvl)
+		[ $# -ne 2 ] && usage
+		if echo "$2"|egrep "^[0-9]+$" > /dev/null;
+		then
+			iwpriv wifi0 dsp_dbg_lvl_set $2
+		else
+			echo "Debug level parameter should be a number"
+			exit 1
+		fi
+		;;
+	dsp_dbg_flg)
+		[ $# -lt 2 ] && usage "Bad number of arguments for \"dspdbgflg\" parameter"
+		shift
+		get_dspdbgflg $@
+		[ $? -ne 0 ] && usage "Bad argument for \"dspdbgflg\" command"
+		iwpriv wifi0 dsp_dbg_flg_set $dbg_flg
+		;;
+	*)
+		echo "Bad parameters: $@"
+		usage
+		;;
+esac
+

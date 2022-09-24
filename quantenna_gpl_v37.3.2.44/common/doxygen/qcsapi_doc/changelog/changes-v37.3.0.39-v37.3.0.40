@@ -1,0 +1,22 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_39_TO_v37_3_0_40 Version v37.3.0.39 to version v37.3.0.40 changes
+ *
+ * \subsection v37_3_0_39_TO_v37_3_0_40Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.39 and v37.3.0.40
+ * \li \ref qcsapi_wifi_chan_control
+ * \li \ref qcsapi_wifi_get_ap_interface_name
+ * \li \ref qcsapi_wifi_set_ap_interface_name
+ * \li \ref qcsapi_wifi_verify_repeater_mode
+ * \li \ref qcsapi_wifi_get_chan_disabled
+ *
+ * \subsection v37_3_0_39_TO_v37_3_0_40Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.39 and v37.3.0.40
+ *  - \ref qcsapi_get_uboot_info
+ *    - Old prototype: int qcsapi_get_uboot_info(char *info, qcsapi_unsigned_int uboot_info);
+ *    - New prototype: int qcsapi_get_uboot_info(string_32 uboot_version, struct early_flash_config *ef_config);
+ */
+

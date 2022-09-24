@@ -1,0 +1,62 @@
+#!/bin/sh
+
+interface="wifi0"
+wfa_cert_mode=$1
+
+check_wifi_interfaces()
+{
+	# If more than one wifi interface, flag a warning
+	intf_count=`ls /sys/class/net/ | grep wifi | wc -l`
+	if [ $intf_count != 1 ]; then
+		echo "Warning, more than one wifi interface present - disable it for WFA testing"
+	fi
+}
+
+disable_schedulers()
+{
+	# AC inheritance
+	iwpriv $interface setparam 253 0
+	# Airtime fairness
+	iwpriv $interface airfair 0
+}
+
+enable_schedulers()
+{
+	# AC inheritance
+	iwpriv $interface setparam 253 1
+	# Airtime fairness
+	iwpriv $interface airfair 1
+}
+
+disable_sfs()
+{
+	# Fastlane and RTS/CTS
+	iwpriv $interface dyn_wmm 0
+	iwpriv $interface peer_rts 0
+	# GI probing
+	iwpriv wifi0 gi_select 0
+}
+
+enable_sfs()
+{
+	# Default value is both dynamic WMM and dynamic peer RTS enabled
+	# Fastlane and RTS/CTS
+	iwpriv $interface dyn_wmm 1
+	iwpriv $interface peer_rts 2
+	# GI probing to third party
+	iwpriv wifi0 gi_select 2
+}
+
+# Disable or enable the features that are not required for WFA (pre)cert testing
+if [ $wfa_cert_mode == 1 ]; then
+	check_wifi_interfaces
+	disable_schedulers
+	disable_sfs
+
+	/scripts/sigma_ca restart
+else
+	enable_schedulers
+	enable_sfs
+
+	/scripts/sigma_ca stop
+fi

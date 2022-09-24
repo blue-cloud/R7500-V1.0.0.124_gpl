@@ -1,0 +1,5 @@
+#!/bin/ash
+/scipts/writemem e6000300 $1
+/scripts/writemem e600025c $1
+/scripts/writemem e6800300 $1
+/scripts/writemem e680025c $1

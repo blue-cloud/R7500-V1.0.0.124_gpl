@@ -1,0 +1,19 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_103_0_TO_v32_104_0 Version v32.103.0 to version v32.104.0 changes
+ *
+ * \subsection v32_103_0_TO_v32_104_0Added Added functions
+ *
+ * The following functions were added between versions v32.103.0 and v32.104.0
+ *
+ * \li \ref qcsapi_wifi_get_ap_isolate
+ * \li \ref qcsapi_wps_set_param
+ * \li \ref qcsapi_wifi_get_wpa_status
+ * \li \ref qcsapi_wifi_get_associated_device_ip_addr
+ * \li \ref qcsapi_wifi_get_radar_status
+ * \li \ref qcsapi_wifi_get_auth_state
+ * \li \ref qcsapi_wifi_set_ap_isolate
+ * \li \ref qcsapi_wifi_qos_set_param
+ */
+

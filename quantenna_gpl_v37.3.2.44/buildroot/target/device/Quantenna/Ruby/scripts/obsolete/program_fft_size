@@ -1,0 +1,53 @@
+#! /bin/sh
+
+if [ $# -lt 1 ]
+then
+    echo $0 requires FFT size, 128 or 256.
+    exit 1
+fi
+
+fft_size=$1
+if [ $fft_size -eq 128 ]
+then
+    writemem e60905b8 0x4020
+
+    writemem e60905f4 0x80000003
+ 
+    writemem e605004c 0x380
+
+    writemem e6050060 0x348
+    writemem e6050064 0xcb8
+    writemem e6050068 0x220
+    writemem e605006c 0xde0
+
+    writemem e6050090 0x220
+    writemem e6050094 0x181
+    writemem e6050098 0xac
+    writemem e605009c 0x54
+
+    writemem e60500a8 0x23b
+elif [ $fft_size -eq 256 ]
+then
+    writemem e60905b8 0x1e1e
+
+    writemem e60905f4 0x88008003
+
+    writemem e605004c 0x780
+
+    writemem e6050060 0x4a4
+    writemem e6050064 0xb5c
+    writemem e6050068 0x30a
+    writemem e605006c 0xcf6
+
+    writemem e6050090 0x30a
+    writemem e6050094 0x226
+    writemem e6050098 0xf6
+    writemem e605009c 0x54
+
+    writemem e60500a8 0x32a
+else
+    echo "Invalid FFT size $fft_size"
+    exit 1
+fi
+
+exit 0

@@ -1,0 +1,30 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_108_0_TO_v32_109_0 Version v32.108.0 to version v32.109.0 changes
+ *
+ * \subsection v32_108_0_TO_v32_109_0Added Added functions
+ *
+ * The following functions were added between versions v32.108.0 and v32.109.0
+ *
+ * \li \ref qcsapi_sem_init
+ * \li \ref qcsapi_vsp_set_config
+ * \li \ref qcsapi_sem_lock
+ * \li \ref qcsapi_vsp_add_rule
+ * \li \ref qcsapi_vsp_get_strm
+ * \li \ref qcsapi_vsp_get_rule
+ * \li \ref qcsapi_vsp_get_wl
+ * \li \ref qcsapi_sem_disable
+ * \li \ref qcsapi_vsp_add_wl
+ * \li \ref qcsapi_vsp_del_rule
+ * \li \ref qcsapi_vsp_get_config
+ * \li \ref qcsapi_vsp_del_wl
+ * \li \ref qcsapi_vsp_get_stats
+ * \li \ref qcsapi_vsp_get_state_all
+ * \li \ref qcsapi_vsp_get_state
+ * \li \ref qcsapi_vsp_del_rule_index
+ * \li \ref qcsapi_vsp_del_wl_index
+ * \li \ref qcsapi_vsp_set_state
+ * \li \ref qcsapi_sem_unlock
+ * \li \ref qcsapi_vsp_get_config_all
+ */

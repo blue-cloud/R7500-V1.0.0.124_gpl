@@ -1,0 +1,7 @@
+qdrv_tx.diff:
+
+1. build qtn FW by issue command "make topaz_pcie_config" and "make fromscratch".
+2. untar gpl_release (e.g., gpl_release.v36.7.0.31) to qtn sdk.
+3. cd sdk/drivers/qdrv/
+4. patch -p1 qdrv_tx.c < qdrv_tx.diff
+5. rebuild. (make fromscratch)

@@ -1,0 +1,24 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_14_TO_v37_3_0_15 Version v37.3.0.14 to version v37.3.0.15 changes
+ *
+ * \subsection v37_3_0_14_TO_v37_3_0_15Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.14 and v37.3.0.15
+ *
+ * \li \ref qcsapi_wifi_del_radius_auth_server_cfg
+ * \li \ref qcsapi_wifi_get_radius_auth_server_cfg
+ * \li \ref qcsapi_wifi_add_radius_auth_server_cfg
+ *
+ * \subsection v37_3_0_14_TO_v37_3_0_15Removed Removed functions
+ *
+ * The following functions were removed between versions v37.3.0.14 and v37.3.0.15
+ *
+ * \li qcsapi_wifi_set_eap_shared_key
+ * \li qcsapi_wifi_get_eap_shared_key
+ * \li qcsapi_wifi_set_eap_radius_port
+ * \li qcsapi_wifi_set_eap_radius_ipaddr
+ * \li qcsapi_wifi_get_eap_radius_port
+ * \li qcsapi_wifi_get_eap_radius_ipaddr
+ */

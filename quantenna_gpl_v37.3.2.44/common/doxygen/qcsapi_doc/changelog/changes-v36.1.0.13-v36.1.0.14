@@ -1,0 +1,12 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v36_1_0_13_TO_v36_1_0_14 Version v36.1.0.13 to version v36.1.0.14 changes
+ *
+ * \subsection v36_1_0_13_TO_v36_1_0_14Added Added functions
+ *
+ * The following functions were added between versions v36.1.0.13 and v36.1.0.14
+ *
+ * \li \ref qcsapi_wps_get_pbc_in_srcm
+ * \li \ref qcsapi_wps_set_pbc_in_srcm
+ */

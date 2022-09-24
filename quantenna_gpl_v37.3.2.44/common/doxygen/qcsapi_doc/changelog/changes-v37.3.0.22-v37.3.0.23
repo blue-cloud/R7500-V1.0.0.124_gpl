@@ -1,0 +1,13 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_22_TO_v37_3_0_23 Version v37.3.0.22 to version v37.3.0.23 changes
+ *
+ * \subsection v37_3_0_22_TO_v37_3_0_23Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.22 and v37.3.0.23
+ *
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_wea_cac_time
+ * \li \ref qcsapi_str_to_uint32
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_wea_duration
+ */

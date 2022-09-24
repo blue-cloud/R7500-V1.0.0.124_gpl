@@ -1,0 +1,11 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_118_0_TO_v32_119_0 Version v32.118.0 to version v32.119.0 changes
+ *
+ * \subsection v32_118_0_TO_v32_119_0Added Added functions
+ *
+ * The following functions were added between versions v32.118.0 and v32.119.0
+ *
+ * \li \ref qcsapi_wifi_get_disconn_cnt
+ */

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cd /scripts/dni_scripts/
+
+while :; do
+      for scp in `ls dni_* 2>&-`; do
+          chmod +x ${scp}
+          ./${scp}
+          rm ${scp}
+      done
+      sleep 3
+done

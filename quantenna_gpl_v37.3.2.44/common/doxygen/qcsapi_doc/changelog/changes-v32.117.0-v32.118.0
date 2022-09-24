@@ -1,0 +1,12 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_117_0_TO_v32_118_0 Version v32.117.0 to version v32.118.0 changes
+ *
+ * \subsection v32_117_0_TO_v32_118_0Added Added functions
+ *
+ * The following functions were added between versions v32.117.0 and v32.118.0
+ *
+ * \li \ref qcsapi_wifi_run_script
+ * \li \ref qcsapi_pm_set_mode
+ */

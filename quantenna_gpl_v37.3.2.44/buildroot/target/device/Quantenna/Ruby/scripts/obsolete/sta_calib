@@ -1,0 +1,18 @@
+# set the Beacon filter to our BSSID
+/scripts/writemem e505300c 17161514
+/scripts/writemem e5053010 3f1818
+# increase LOS timeout
+/scripts/writemem e600136c 20
+/scripts/writemem e680136c 20
+# set gain for opt EVM
+/scripts/set_opt_gain
+wlanconfig wifi create wlandev qtn0
+# Enable BB and set channel
+iwpriv wifi0 setparam 66 1
+iwpriv wifi0 setparam 67 1
+#set the CS thresh
+/scripts/writemem e6001364 a0
+/scripts/writemem e6801364 a0
+ifconfig wifi0 192.168.10.2 up
+sleep 2
+iwpriv wifi0 setparam 62 0

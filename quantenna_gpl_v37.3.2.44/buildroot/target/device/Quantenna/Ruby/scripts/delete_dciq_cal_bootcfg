@@ -1,0 +1,2 @@
+echo "delete dc_iq.cal" > /proc/bootcfg/env
+

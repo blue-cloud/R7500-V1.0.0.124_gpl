@@ -1,0 +1,18 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v35_1_0_12_TO_v35_1_0_13 Version v35.1.0.12 to version v35.1.0.13 changes
+ *
+ * \subsection v35_1_0_12_TO_v35_1_0_13Added Added functions
+ *
+ * The following functions were added between versions v35.1.0.12 and v35.1.0.13
+ *
+ * \li \ref qcsapi_calcmd_clear_counter
+ *
+ * \subsection v35_1_0_12_TO_v35_1_0_13Removed Removed functions
+ *
+ * The following functions were removed between versions v35.1.0.12 and v35.1.0.13
+ *
+ * \li qcsapi_wifi_get_max_retries
+ * \li qcsapi_wifi_set_max_retries
+ */

@@ -1,0 +1,57 @@
+#!/bin/sh
+
+QTN_REGULATORY_DB_PATH=/tmp/qtn_regulatory_db_path
+QTN_REGULATORY_DB_VER=/tmp/qtn_regulatory_db_version
+
+if [ -f $QTN_REGULATORY_DB_PATH ]; then
+	if [ -f `cat $QTN_REGULATORY_DB_PATH` ]; then
+		echo "$QTN_REGULATORY_DB_PATH already exists!"
+		echo "Using `cat $QTN_REGULATORY_DB_PATH`"
+		exit 0
+	else
+		echo "`cat $QTN_REGULATORY_DB_PATH` not found!"
+	fi
+fi
+
+region_db=`get_wifi_config wifi0 region_db 2>/dev/null`
+if [ $? -ne 0 ]; then
+	region_db=0
+fi
+
+if [ $region_db -eq 0 ]; then
+	if [ -f /proc/bootcfg/qtn_regulatory_db.bin ]; then
+		echo "/proc/bootcfg/qtn_regulatory_db.bin" > $QTN_REGULATORY_DB_PATH
+		db_version_proc=`call_qcsapi get_regulatory_db_version`
+		echo "Version of /proc/bootcfg/qtn_regulatory_db.bin is $db_version_proc"
+	fi
+	if [ -f /etc/qtn_regulatory_db.bin ]; then
+		echo "/etc/qtn_regulatory_db.bin" > $QTN_REGULATORY_DB_PATH
+		db_version_etc=`call_qcsapi get_regulatory_db_version`
+		echo "Version of /etc/qtn_regulatory_db.bin is $db_version_etc"
+	fi
+
+	if [ -n "$db_version_proc" -a -n "$db_version_etc" ]; then
+		echo "$db_version_proc" > $QTN_REGULATORY_DB_VER
+		echo "$db_version_etc" >> $QTN_REGULATORY_DB_VER
+		select=`grep -m1 -o '^[a-zA-Z]*' $QTN_REGULATORY_DB_VER`
+		select=$select`sed 's/^[a-zA-Z]*//' tmp/qtn_regulatory_db_version | sort -n | tail -n 1`
+		echo "Selected database version: $select"
+		if [ "$select" == "$db_version_etc" ]; then
+			region_db=1
+		else
+			region_db=2
+		fi
+	elif [ -n "$db_version_etc" ]; then
+		region_db=1
+	elif [ -n "$db_version_proc" ]; then
+		region_db=2
+	fi
+fi
+
+if [ $region_db -eq 1 ]; then
+	echo "Using /etc/qtn_regulatory_db.bin"
+	echo "/etc/qtn_regulatory_db.bin" > $QTN_REGULATORY_DB_PATH
+elif [ $region_db -eq 2 ]; then
+	echo "Using /proc/bootcfg/qtn_regulatory_db.bin"
+	echo "/proc/bootcfg/qtn_regulatory_db.bin" > $QTN_REGULATORY_DB_PATH
+fi

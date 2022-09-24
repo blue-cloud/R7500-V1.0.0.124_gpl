@@ -1,0 +1,3 @@
+#!/bin/ash
+/scripts/writemem e6001364 $1
+/scripts/writemem e6801364 $1

@@ -1,0 +1,11 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v35_2_0_15_TO_v35_2_0_16 Version v35.2.0.15 to version v35.2.0.16 changes
+ *
+ * \subsection v35_2_0_15_TO_v35_2_0_16Added Added functions
+ *
+ * The following functions were added between versions v35.2.0.15 and v35.2.0.16
+ *
+ * \li \ref qcsapi_wifi_get_cac_status
+ */

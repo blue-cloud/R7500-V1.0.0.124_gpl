@@ -1,0 +1,3 @@
+pn=`rfcaltool -p | awk '{print $3}'`
+iwpriv wifi0 setparam 88 0x$pn
+#writemem 800014dc $pn

@@ -1,0 +1,7 @@
+keyindx=$1"0002"
+writemem e505301C $keyindx
+readmem_multi e505301C 10
+keyindx=$1"0006"
+writemem e505301C $keyindx
+readmem_multi e505301C 10
+

@@ -1,0 +1,22 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_18_TO_v37_3_0_19 Version v37.3.0.18 to version v37.3.0.19 changes
+ *
+ * \subsection v37_3_0_18_TO_v37_3_0_19Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.18 and v37.3.0.19
+ * \li \ref qcsapi_wifi_set_l2_ext_filter
+ * \li \ref qcsapi_wifi_get_l2_ext_filter
+ *
+ * \subsection v37_3_0_18_TO_v37_3_0_19Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.18 and v37.3.0.19
+ *  - \ref qcsapi_get_service_action_enum
+ *    - Old prototype: int qcsapi_get_service_action_enum(string_32 lookup_action, qcsapi_service_action *serv_action);
+ *    - New prototype: int qcsapi_get_service_action_enum(const char *lookup_action, qcsapi_service_action *serv_action);
+ *  - \ref qcsapi_get_service_name_enum
+ *    - Old prototype: int qcsapi_get_service_name_enum(string_32 lookup_service, qcsapi_service_name *serv_name);
+ *    - New prototype: int qcsapi_get_service_name_enum(const char *lookup_service, qcsapi_service_name *serv_name);
+ */
+

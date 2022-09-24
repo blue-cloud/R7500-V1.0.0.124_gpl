@@ -1,0 +1,25 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_1_TO_v37_3_0_2 Version v37.3.0.1 to version v37.3.0.2 changes
+ *
+ * \subsection v37_3_0_1_TO_v37_3_0_2Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.1 and v37.3.0.2
+ * \li \ref qcsapi_wifi_get_scan_buf_max_size
+ * \li \ref qcsapi_calcmd_get_info
+ * \li \ref qcsapi_wifi_set_scan_buf_max_size
+ * \li \ref qcsapi_wifi_get_scan_table_max_len
+ * \li \ref qcsapi_wifi_set_scan_table_max_len
+ *
+ * \subsection v37_3_0_1_TO_v37_3_0_2Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.1 and v37.3.0.2
+ *  - \ref qcsapi_wifi_get_auth_state
+ *    - Old prototype: int qcsapi_wifi_get_auth_state(const char *ifname, char *mac_addr, int *auth_state);
+ *    - New prototype: int qcsapi_wifi_get_auth_state(const char *ifname, const char *mac_addr, int *auth_state);
+ *  - \ref qcsapi_wifi_get_wpa_status
+ *    - Old prototype: int qcsapi_wifi_get_wpa_status(const char *ifname, char *wpa_status, char *mac_addr, const qcsapi_unsigned_int max_len);
+ *    - New prototype: int qcsapi_wifi_get_wpa_status(const char *ifname, char *wpa_status, const char *mac_addr, const qcsapi_unsigned_int max_len);
+ */
+

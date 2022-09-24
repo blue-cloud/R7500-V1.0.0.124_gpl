@@ -1,0 +1,25 @@
+diff -dur bridge-utils-1.0.6-orig/brctl/brctl_cmd.c bridge-utils-1.0.6/brctl/brctl_cmd.c
+--- bridge-utils-1.0.6-orig/brctl/brctl_cmd.c	2011-10-27 12:21:53.977970317 +1100
++++ bridge-utils-1.0.6/brctl/brctl_cmd.c	2011-10-26 14:24:10.281520609 +1100
+@@ -307,8 +307,11 @@
+ 	else if (!strcmp(argv[2], "off") || !strcmp(argv[2], "no")
+ 		 || !strcmp(argv[2], "0"))
+ 		igmp = 0;
++	else if (!strcmp(argv[2], "hybrid") || !strcmp(argv[2], "wonky")
++		 || !strcmp(argv[2], "2"))
++		igmp = 2;
+ 	else {
+-		fprintf(stderr, "expect on/off for argument\n");
++		fprintf(stderr, "expect on/off/hybrid for argument\n");
+ 		return 1;
+ 	}
+ 
+@@ -463,7 +466,7 @@
+ 	{ 2, "stp", br_cmd_stp,
+ 	  "<bridge> {on|off}\tturn stp on/off" },
+ 	{ 2, "igmpsnoop", br_cmd_igmp_snoop,
+-	  "<bridge> {on|off}\tturn IGMP snooping on/off" },
++	  "<bridge> {on|off|hybrid}\tturn IGMP snooping on/off or use hybrid mode" },
+ 	{ 2, "ssdp_flood", br_cmd_ssdp_flood,
+ 	  "<bridge> {on|off}\tturn ssdp flooding on/off" },
+ };

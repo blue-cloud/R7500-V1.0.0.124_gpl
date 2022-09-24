@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# copy dmesg if the MuC crashes
+file_prefix="/mnt/jffs2/muc_crash_dmesg"
+file_suffix=".txt"
+
+# do a logrotate style renumbering, 0 = youngest, 5 oldest
+for i in 4 3 2 1 0 ; do
+	newf="$file_prefix""$(($i+1))""$file_suffix"
+	oldf="$file_prefix""$i""$file_suffix"
+	if [ -e $oldf ] ; then
+		mv $oldf $newf
+	fi
+done
+rm -f "$file_prefix""5""$file_suffix"
+
+dmesg | grep -A 10 -B 10 'MuC: ' > /mnt/jffs2/muc_crash_dmesg0.txt
+

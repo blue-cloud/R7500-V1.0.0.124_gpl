@@ -1,0 +1,13 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_20_TO_v37_3_0_21 Version v37.3.0.20 to version v37.3.0.21 changes
+ *
+ * \subsection v37_3_0_20_TO_v37_3_0_21Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.20 and v37.3.0.21
+ *  - \ref qcsapi_wifi_set_hs20_params
+ *    - Old prototype: int qcsapi_wifi_set_hs20_params(const char *ifname, const string_32 param, const string_64 p_value);
+ *    - New prototype: int qcsapi_wifi_set_hs20_params(const char *ifname, const string_32 param, const string_64 value1, const string_64 value2, const string_64 value3, const string_64 value4, const string_64 value5, const string_64 value6);
+ */
+

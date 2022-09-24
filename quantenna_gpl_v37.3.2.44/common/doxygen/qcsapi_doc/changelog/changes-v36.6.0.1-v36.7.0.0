@@ -1,0 +1,11 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v36_6_0_1_TO_v36_7_0_0 Version v36.6.0.1 to version v36.7.0.0 changes
+ *
+ * \subsection v36_6_0_1_TO_v36_7_0_0Added Added functions
+ *
+ * The following functions were added between versions v36.6.0.1 and v36.7.0.0
+ *
+ * \li \ref qcsapi_regulatory_apply_tx_power_cap
+ */

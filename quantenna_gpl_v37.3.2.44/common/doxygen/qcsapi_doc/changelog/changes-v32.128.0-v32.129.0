@@ -1,0 +1,25 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_128_0_TO_v32_129_0 Version v32.128.0 to version v32.129.0 changes
+ *
+ * \subsection v32_128_0_TO_v32_129_0Added Added functions
+ *
+ * The following functions were added between versions v32.128.0 and v32.129.0
+ *
+ * \li \ref qcsapi_calcmd_get_test_mode_bw
+ * \li \ref qcsapi_calcmd_send_dc_cw_signal
+ * \li \ref qcsapi_calcmd_send_test_packet
+ * \li \ref qcsapi_calcmd_get_test_mode_antenna_sel
+ * \li \ref qcsapi_calcmd_get_test_mode_mcs
+ * \li \ref qcsapi_get_temperature_info
+ * \li \ref qcsapi_calcmd_stop_test_packet
+ * \li \ref qcsapi_calcmd_get_tx_power
+ * \li \ref qcsapi_calcmd_show_test_packet
+ * \li \ref qcsapi_calcmd_stop_dc_cw_signal
+ * \li \ref qcsapi_calcmd_set_tx_power
+ * \li \ref qcsapi_wifi_set_accept_oui_filter
+ * \li \ref qcsapi_calcmd_set_test_mode
+ * \li \ref qcsapi_calcmd_get_test_mode_rssi
+ * \li \ref qcsapi_wifi_get_accept_oui_filter
+ */

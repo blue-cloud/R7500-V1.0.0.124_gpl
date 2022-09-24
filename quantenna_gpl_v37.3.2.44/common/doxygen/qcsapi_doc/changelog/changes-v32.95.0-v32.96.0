@@ -1,0 +1,12 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_95_0_TO_v32_96_0 Version v32.95.0 to version v32.96.0 changes
+ *
+ * \subsection v32_95_0_TO_v32_96_0Added Added functions
+ *
+ * The following functions were added between versions v32.95.0 and v32.96.0
+ *
+ * \li \ref qcsapi_wifi_clear_mac_address_filters
+ */
+

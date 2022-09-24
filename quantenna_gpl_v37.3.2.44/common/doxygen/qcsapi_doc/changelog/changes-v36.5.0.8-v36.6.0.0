@@ -1,0 +1,14 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v36_5_0_8_TO_v36_6_0_0 Version v36.5.0.8 to version v36.6.0.0 changes
+ *
+ * \subsection v36_5_0_8_TO_v36_6_0_0Added Added functions
+ *
+ * The following functions were added between versions v36.5.0.8 and v36.6.0.0
+ *
+ * \li \ref qcsapi_wifi_set_rts_threshold
+ * \li \ref qcsapi_config_get_ssid_parameter
+ * \li \ref qcsapi_config_update_ssid_parameter
+ * \li \ref qcsapi_wifi_get_rts_threshold
+ */

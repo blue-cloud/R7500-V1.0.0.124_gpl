@@ -1,0 +1,12 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_129_0_TO_v32_130_0 Version v32.129.0 to version v32.130.0 changes
+ *
+ * \subsection v32_129_0_TO_v32_130_0Added Added functions
+ *
+ * The following functions were added between versions v32.129.0 and v32.130.0
+ *
+ * \li \ref qcsapi_wps_allow_pbc_overlap
+ * \li \ref qcsapi_wps_get_allow_pbc_overlap_status
+ */

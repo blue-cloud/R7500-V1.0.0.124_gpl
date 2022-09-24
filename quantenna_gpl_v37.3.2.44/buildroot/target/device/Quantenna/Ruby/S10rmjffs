@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+
+base_scripts="/scripts"
+. $base_scripts/start-helpers.sh
+base_persistent_files="/mnt/jffs2"
+
+start() {
+    export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/scripts:/usr/local/bin
+    export LD_LIBRARY_PATH=/lib:/usr/lib
+
+    rm ${base_persistent_files}/* -rf
+    echo "staticip=1&mode=ap&bw=80&vht=1&region=none&channel=44&bf=1&pwr=19&scs=0&vsp=0&" >${base_persistent_files}/wireless_conf.txt
+    echo_with_logging "Creating wireless configuration file ${base_persistent_files}/wireless_conf.txt"
+    echo "1.1.1.2" >${base_persistent_files}/ipaddr
+    echo_with_logging "Creating ip file ${base_persistent_files}/ipaddr"
+    sync
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        exit 1
+        ;;
+  restart|reload)
+        exit 1
+        ;;
+  *)
+        echo $"Usage: $0 {start}"
+        exit 1
+esac
+
+exit $?

@@ -1,0 +1,73 @@
+#! /bin/sh
+modules=`lsmod | grep qdrv`
+
+failure()
+{
+	echo "###################################################################" | tee /dev/console 
+	echo "##                                                               ##" | tee /dev/console
+	echo "##                Dude, there was a problem!                     ##" | tee /dev/console
+	echo "##                                                               ##" | tee /dev/console
+	echo "###################################################################" | tee /dev/console
+}
+
+if [ "$modules" == "" ]
+then
+	echo "Loading modules"
+	ql
+fi
+
+#
+# Let's check if we loaded
+#
+if [ ! -f /sys/devices/qdrv/control ]
+then
+	echo "###################################################################" | tee /dev/console 
+	echo "##                                                               ##" | tee /dev/console
+	echo "##                Failed to load kernel modules                  ##" | tee /dev/console
+	echo "##                                                               ##" | tee /dev/console
+	echo "###################################################################" | tee /dev/console
+	exit 1
+fi
+
+if [ -f /scripts/tprofile.txt ]
+then
+    cp /scripts/tprofile.txt /tmp/
+fi
+
+# Enable errors and warnings
+#
+echo "set no_led 1" > /sys/devices/qdrv/control
+
+echo "set mucfw cal_driver.0.bin" > /sys/devices/qdrv/control
+echo "set dspfw dsp_driver.bin" > /sys/devices/qdrv/control
+
+#Set wifi MAC addresses either from flash or set to zero
+if [ ! -f /mnt/jffs2/wifi_mac_addrs ]
+then
+	rfcaltool -m
+else
+	set_macaddrs
+fi
+
+echo "start" > /sys/devices/qdrv/control
+result=`cat /sys/devices/qdrv/control`
+if [ "$result" != "ok" ]
+then
+	failure
+	exit 1
+fi
+
+sleep 1
+
+#
+#Initialize calcmd path
+#
+if [ ! -f /mnt/jffs2/eirp_info.txt ]
+then
+cp /scripts/eirp_info.txt /mnt/jffs2/
+fi
+echo "calcmd 0 1" > /sys/devices/qdrv/control
+/scripts/writemem e5053050 400250
+set_test_mode 161 127 14 20 1 1 0
+send_test_packet
+exit 0

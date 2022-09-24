@@ -1,0 +1,17 @@
+#!/bin/sh
+
+RFIC=`get_rfic_version`
+if [ "$RFIC" == "" ]
+then
+    echo Problem getting the RFIC version
+    exit 1
+fi
+
+if [ $1 ]; then
+    if [ $RFIC == RFIC3 ]
+    then
+        writemem 80012648 $1
+    else
+        writemem 8001117c $1
+    fi
+fi

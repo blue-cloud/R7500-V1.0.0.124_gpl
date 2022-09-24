@@ -1,0 +1,15 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_112_0_TO_v32_113_0 Version v32.112.0 to version v32.113.0 changes
+ *
+ * \subsection v32_112_0_TO_v32_113_0Added Added functions
+ *
+ * The following functions were added between versions v32.112.0 and v32.113.0
+ *
+ * \li \ref qcsapi_wifi_set_scs_verbose
+ * \li \ref qcsapi_wifi_set_scs_cca_intf_smth_fctr
+ * \li \ref qcsapi_wifi_rfstatus
+ * \li \ref qcsapi_wifi_set_scs_smpl_enable
+ * \li \ref qcsapi_get_phy_stats
+ */

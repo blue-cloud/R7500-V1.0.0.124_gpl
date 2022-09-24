@@ -1,0 +1,11 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_36_TO_v37_3_0_37 Version v37.3.0.36 to version v37.3.0.37 changes
+ *
+ * \subsection v37_3_0_36_TO_v37_3_0_37Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.36 and v37.3.0.37
+ *
+ * \li \ref qcsapi_wifi_block_bss
+ */

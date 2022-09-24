@@ -1,0 +1,35 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_94_0_TO_v32_95_0 Version v32.94.0 to version v32.95.0 changes
+ *
+ * \subsection v32_94_0_TO_v32_95_0Added Added functions
+ *
+ * The following functions were added between versions v32.94.0 and v32.95.0
+ *
+ * \li \ref qcsapi_reset_all_counters
+ * \li \ref qcsapi_wifi_set_scs_smpl_dwell_time
+ * \li \ref qcsapi_wifi_set_scs_intf_detect_intv
+ * \li \ref qcsapi_wifi_get_scs_status
+ * \li \ref qcsapi_wifi_set_scs_thrshld
+ * \li \ref qcsapi_wifi_set_scs_sample_intv
+ * \li \ref qcsapi_wifi_get_scs_cce_channels
+ * \li \ref qcsapi_wifi_scs_enable
+ * \li \ref qcsapi_wifi_set_scs_report_only
+ * \li \ref qcsapi_wifi_get_scs_stat_report
+ * \li \ref qcsapi_wifi_set_scs_wf
+ *
+ * \subsection v32940TOv32950Removed Removed functions
+ *
+ * The following functions were removed between versions v32.94.0 and v32.95.0
+ *
+ * \li qcsapi_wifi_set_adm_smpl_dwell_time
+ * \li qcsapi_wifi_adm_enable
+ * \li qcsapi_wifi_get_adm_status
+ * \li qcsapi_wifi_set_adm_sample_intv
+ * \li qcsapi_wifi_get_adm_stat_report
+ * \li qcsapi_wifi_get_adm_cce_channels
+ * \li qcsapi_wifi_set_report_only
+ * \li qcsapi_wifi_set_adm_wf
+ * \li qcsapi_wifi_set_adm_thrshld
+ */

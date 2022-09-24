@@ -1,0 +1,30 @@
+writemem e6050110 197a
+writemem e6050114 1013
+writemem e6050118 a25
+writemem e605011c 666
+writemem e6050120 40a
+writemem e6050124 28c
+writemem e6050128 19c
+writemem e605012c 104
+writemem e6050130 a4
+writemem e6050134 67
+writemem e6050138 41
+writemem e605013c 29
+writemem e6050140 1a
+writemem e6050144 10
+writemem e6850110 197a
+writemem e6850114 1013
+writemem e6850118 a25
+writemem e685011C 666
+writemem e6850120 40a
+writemem e6850124 28c
+writemem e6850128 19c
+writemem e685012C 104
+writemem e6850130 a4
+writemem e6850134 67
+writemem e6850138 41
+writemem e685013C 29
+writemem e6850140 1a
+writemem e6850144 10
+
+

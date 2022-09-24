@@ -1,0 +1,51 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_12_TO_v37_3_0_13 Version v37.3.0.12 to version v37.3.0.13 changes
+ *
+ * \subsection v37_3_0_12_TO_v37_3_0_13Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.12 and v37.3.0.13
+ * \li \ref qcsapi_security_add_oper_friendly_name
+ * \li \ref qcsapi_security_del_venue_name
+ * \li \ref qcsapi_security_get_hs20_conn_capab
+ * \li \ref qcsapi_security_get_venue_name
+ * \li \ref qcsapi_security_add_venue_name
+ * \li \ref qcsapi_security_get_oper_friendly_name
+ * \li \ref qcsapi_security_del_oper_friendly_name
+ * \li \ref qcsapi_security_del_hs20_conn_capab
+ * \li \ref qcsapi_verify_numeric
+ * \li \ref qcsapi_security_add_hs20_conn_capab
+ *
+ * \subsection v37_3_0_12_TO_v37_3_0_13Removed Removed functions
+ *
+ * The following functions were removed between versions v37.3.0.12 and v37.3.0.13
+ * \li \ref qcsapi_wifi_set_venue_info
+ * \li \ref qcsapi_wifi_get_venue_info
+ *
+ * \subsection v37_3_0_12_TO_v37_3_0_13Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.12 and v37.3.0.13
+ *  - \ref qcsapi_security_add_roaming_consortium
+ *    - Old prototype: int qcsapi_security_add_roaming_consortium(const char *ifname, const string_32 p_value);
+ *    - New prototype: int qcsapi_security_add_roaming_consortium(const char *ifname, const char *p_value);
+ *  - \ref qcsapi_security_get_nai_realms
+ *    - Old prototype: int qcsapi_security_get_nai_realms(const char *ifname, string_1024 p_value);
+ *    - New prototype: int qcsapi_security_get_nai_realms(const char *ifname, string_4096 p_value);
+ *  - \ref qcsapi_wifi_set_80211u_params
+ *    - Old prototype: int qcsapi_wifi_set_80211u_params(const char *ifname, const string_32 param, const string_32 p_value);
+ *    - New prototype: int qcsapi_wifi_set_80211u_params(const char *ifname, const string_32 param, const string_256 value1, const string_32 value2);
+ *  - \ref qcsapi_security_del_nai_realm
+ *    - Old prototype: int qcsapi_security_del_nai_realm(const char *ifname, const string_32 p_value);
+ *    - New prototype: int qcsapi_security_del_nai_realm(const char *ifname, const char *nai_realm);
+ *  - \ref qcsapi_get_temperature_info
+ *    - Old prototype: int qcsapi_get_temperature_info(int *temp_external, int *temp_internal);
+ *    - New prototype: int qcsapi_get_temperature_info(int *temp_external, int *temp_internal, int *temp_bb_internal);
+ *  - \ref qcsapi_security_del_roaming_consortium
+ *    - Old prototype: int qcsapi_security_del_roaming_consortium(const char *ifname, const string_32 p_value);
+ *    - New prototype: int qcsapi_security_del_roaming_consortium(const char *ifname, const char *p_value);
+ *  - \ref qcsapi_wifi_get_80211u_params
+ *    - Old prototype: int qcsapi_wifi_get_80211u_params(const char *ifname, const string_32 param, string_32 p_value);
+ *    - New prototype: int qcsapi_wifi_get_80211u_params(const char *ifname, const string_32 param, string_256 p_value);
+ */
+

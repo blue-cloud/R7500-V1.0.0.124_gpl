@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set_11ac_mcs 0x04
+bfoff
+call_qcsapi set_ocac_thrshld wifi0 fat 1
+qpm level 0

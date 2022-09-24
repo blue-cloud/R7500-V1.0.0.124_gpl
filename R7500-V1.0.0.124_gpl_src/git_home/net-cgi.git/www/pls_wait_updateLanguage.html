@@ -1,0 +1,54 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=<% lang_charset() %>" />
+<link rel="stylesheet" href="style/form.css" />
+<style type="text/css"> 
+.prgbar1 { font-family:Arial; padding:0px; height: 20px; width: 280px; font-weight: bolder; font-size: 10pt; border: 1px solid; border-color: #09c; color: #0000FF}  
+</style>
+<script language="javascript" type="text/javascript">
+var pchar = "||"; // progress char
+var maxchars = 40; 
+var delay_time = 500; // msecs
+var charcount = 0; 
+
+function makeStr(strSize, fillChar)
+{
+	var temp = "";
+	for (i=0; i < strSize ; i ++)
+		temp = temp + fillChar;
+	return temp;
+}
+
+function updateProgress()
+{
+	var cf = document.forms[0];
+	if (charcount < maxchars)
+	{
+		charcount ++;
+		cf.progress.value = makeStr(charcount,pchar);
+		setTimeout("updateProgress()",delay_time);
+	}
+	else
+		location.href="/change_language_result.htm";
+}
+
+function loadvalue()
+{
+		updateProgress();
+}
+</script>
+</head>
+<body bgcolor="#ffffff" onload="loadvalue()">
+<div id="main" class="main">
+<form>
+	<div id="downloading_div">
+		<div><img src="liteblue.gif" width=100% height="12" /></div><br />
+		<div align="left">$wait_update_lang</div><br />
+		<div align="center"><input type="text" name="progress" class="prgbar1" value="" /></div><br />
+		<div><img src="liteblue.gif" width=100% height="12" /></div>
+	</div>
+</form>
+</div>
+</body>
+</html>

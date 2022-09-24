@@ -1,0 +1,2 @@
+echo "delete pdetector.cal" > /proc/bootcfg/env
+

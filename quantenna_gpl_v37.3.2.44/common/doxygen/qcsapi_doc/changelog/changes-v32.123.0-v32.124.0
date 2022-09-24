@@ -1,0 +1,12 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_123_0_TO_v32_124_0 Version v32.123.0 to version v32.124.0 changes
+ *
+ * \subsection v32_123_0_TO_v32_124_0Added Added functions
+ *
+ * The following functions were added between versions v32.123.0 and v32.124.0
+ *
+ * \li \ref qcsapi_wifi_get_scs_dfs_reentry_request
+ * \li \ref qcsapi_wifi_set_scs_chan_mtrc_mrgn
+ */

@@ -1,0 +1,23 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_11_TO_v37_3_0_12 Version v37.3.0.11 to version v37.3.0.12 changes
+ *
+ * \subsection v37_3_0_11_TO_v37_3_0_12Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.11 and v37.3.0.12
+ *
+ * \li \ref qcsapi_interface_get_ip4
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_dwell_time
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_thrshld
+ * \li \ref qcsapi_wifi_get_dfs_s_radio_status
+ * \li \ref qcsapi_wifi_get_bss_assoc_limit
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_report_only
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_cac_time
+ * \li \ref qcsapi_wifi_get_dfs_s_radio_availability
+ * \li \ref qcsapi_wifi_set_bss_assoc_limit
+ * \li \ref qcsapi_interface_set_ip4
+ * \li \ref qcsapi_wifi_start_dfs_s_radio
+ * \li \ref qcsapi_wifi_set_dfs_s_radio_duration
+ * \li \ref qcsapi_wifi_stop_dfs_s_radio
+ */

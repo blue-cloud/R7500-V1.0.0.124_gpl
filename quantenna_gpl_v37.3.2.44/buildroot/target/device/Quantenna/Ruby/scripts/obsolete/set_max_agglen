@@ -1,0 +1,7 @@
+#!/bin/sh
+# Hard coded hack - the memory value at this location is 2 by default
+# resulting in 4K aggregates. Writing 1 will give you 8K aggregates and
+# writing 0 will give you 16K aggregates
+
+agg_size=`cat /scripts/muc_memmap | grep g_control_max_agg_size | awk '{print $2}'`
+writemem $agg_size $1

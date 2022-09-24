@@ -1,0 +1,25 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_16_TO_v37_3_0_17 Version v37.3.0.16 to version v37.3.0.17 changes
+ *
+ * \subsection v37_3_0_16_TO_v37_3_0_17Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.16 and v37.3.0.17
+ * \li \ref qcsapi_wifi_set_enable_mu
+ * \li \ref qcsapi_wifi_get_mu_use_eq
+ * \li \ref qcsapi_wifi_get_mu_use_precode
+ * \li \ref qcsapi_wifi_get_enable_mu
+ * \li \ref qcsapi_wifi_set_mu_use_eq
+ * \li \ref qcsapi_wfa_cert_mode_enable
+ * \li \ref qcsapi_wifi_get_mu_groups
+ * \li \ref qcsapi_wifi_set_mu_use_precode
+ *
+ * \subsection v37_3_0_16_TO_v37_3_0_17Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.16 and v37.3.0.17
+ *  - \ref qcsapi_wifi_set_phy_mode
+ *    - Old prototype: int qcsapi_wifi_set_phy_mode(const char *ifname, char *new_phy_mode);
+ *    - New prototype: int qcsapi_wifi_set_phy_mode(const char *ifname, const char *new_phy_mode);
+ */
+

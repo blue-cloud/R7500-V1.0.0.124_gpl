@@ -1,0 +1,42 @@
+cat /dev/null >/tmp/memdump.log
+
+# Following only applies to BBIC3 ...
+
+dmesg -c >> /tmp/memdump.log
+
+md e503ffb0 150 >> /tmp/memdump.log
+md e503ffb0 150 >> /tmp/memdump.log
+
+md e5050400 100 >> /tmp/memdump.log
+
+sleep 1
+dmesg >> /tmp/memdump.log
+
+# Following applies to BBIC2 and BBIC3 ...
+
+readmem e6000320 >> /tmp/memdump.log
+echo writemem e6000320 0xffff >> /tmp/memdump.log
+writemem e6000320 0xffff >> /tmp/memdump.log
+readmem e6000320 >> /tmp/memdump.log
+readmem e5050478 >> /tmp/memdump.log
+readmem e5052034 >> /tmp/memdump.log
+readmem e60001f4 >> /tmp/memdump.log
+readmem e5052034 >> /tmp/memdump.log
+echo writemem e5052034 0xffff >> /tmp/memdump.log
+writemem e5052034 0xffff >> /tmp/memdump.log
+readmem e5052034 >> /tmp/memdump.log
+
+mode=`call_qcsapi -u get_mode wifi0`
+if [ "$mode" == "Acces point" ]
+then
+    readmem_multi e5050500 4 >> /tmp/memdump.log
+    sleep 1;
+    readmem_multi e5050500 4 >> /tmp/memdump.log
+fi
+
+sleep 1
+dmesg –c >> /tmp/memdump.log
+debug_hang >> /tmp/memdump.log
+sleep 1
+dmesg >> /tmp/memdump.log
+

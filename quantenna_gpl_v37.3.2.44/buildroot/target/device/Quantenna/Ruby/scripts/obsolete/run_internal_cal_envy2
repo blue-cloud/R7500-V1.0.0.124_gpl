@@ -1,0 +1,259 @@
+#! /bin/sh
+runRXIQ=1 
+numargs=$#
+
+echo "calcmd 1 0 8 0 1 1 2 36" > /sys/devices/qdrv/control
+echo "Disable TX Power calibration"
+echo "calcmd 11 0 6 0 1 0" > /sys/devices/qdrv/control
+echo "calcmd 12 0 14 0 1 127 2 14 3 20 4 40 5 1" > /sys/devices/qdrv/control
+echo "calcmd 8 0 6 0 1 0" > /sys/devices/qdrv/control
+echo "calcmd 16 0 4 0" > /sys/devices/qdrv/control
+if [ $numargs -gt 0 ]
+then	
+        for i in 1 2 3 4 5
+        do
+		echo "===========  START OF CHANNEL AT $1 =============="
+		echo "calcmd 1 0 8 0 1 1 2 $1" > /sys/devices/qdrv/control
+
+		echo "Run TX LO and IQ Calibration"
+		echo "  Gain set 406"
+		writerfmem 0 105 406
+		writerfmem 0 106 406
+		writerfmem 1 105 406
+		writerfmem 1 106 406
+		writemem e6070298 78
+		writemem e6870298 78
+		echo "calcmd 28 0 8 0 1 0 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 0 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 20 0 4 0" > /sys/devices/qdrv/control
+		writemem e6070298 0
+		writemem e60702a0 0
+		writemem e60702a0 1
+		writemem e6870298 0
+		writemem e68782a0 0
+		writemem e68782a0 1
+		echo "calcmd 29 0 12 0 1 1 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 22 0 4 0" > /sys/devices/qdrv/control
+
+		echo "  Gain set 405"
+		writerfmem 0 105 405
+		writerfmem 0 106 405
+		writerfmem 1 105 405
+		writerfmem 1 106 405
+		writemem e6070298 78
+		writemem e6870298 78
+		echo "calcmd 28 0 8 0 1 0 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 0 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 20 0 4 0" > /sys/devices/qdrv/control
+		writemem e6070298 0
+		writemem e60702a0 0
+		writemem e60702a0 1
+		writemem e6870298 0
+		writemem e68782a0 0
+		writemem e68782a0 1
+		echo "calcmd 29 0 12 0 1 1 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 22 0 4 0" > /sys/devices/qdrv/control
+
+		echo "  Gain set 404"
+		writerfmem 0 105 404
+		writerfmem 0 106 404
+		writerfmem 1 105 404
+		writerfmem 1 106 404
+		writemem e6070298 78
+		writemem e6870298 78
+		echo "calcmd 28 0 8 0 1 0 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 0 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 20 0 4 0" > /sys/devices/qdrv/control
+		writemem e6070298 0
+		writemem e60702a0 0
+		writemem e60702a0 1
+		writemem e6870298 0
+		writemem e68782a0 0
+		writemem e68782a0 1
+		echo "calcmd 29 0 12 0 1 1 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 22 0 4 0" > /sys/devices/qdrv/control
+
+		echo "  Gain set 403"
+		writerfmem 0 105 403
+		writerfmem 0 106 403
+		writerfmem 1 105 403
+		writerfmem 1 106 403
+		writemem e6070298 78
+		writemem e6870298 78
+		echo "calcmd 28 0 8 0 1 0 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 0 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 20 0 4 0" > /sys/devices/qdrv/control
+		writemem e6070298 0
+		writemem e60702a0 0
+		writemem e60702a0 1
+		writemem e6870298 0
+		writemem e68782a0 0
+		writemem e68782a0 1
+		echo "calcmd 29 0 12 0 1 1 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 22 0 4 0" > /sys/devices/qdrv/control
+
+		echo "  Gain set 402"
+		writerfmem 0 105 402
+		writerfmem 0 106 402
+		writerfmem 1 105 402
+		writerfmem 1 106 402
+		writemem e6070298 78
+		writemem e6870298 78
+		echo "calcmd 28 0 8 0 1 0 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 0 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 0" > /sys/devices/qdrv/control
+		echo "calcmd 28 0 8 0 1 1 2 2" > /sys/devices/qdrv/control
+		echo "calcmd 20 0 4 0" > /sys/devices/qdrv/control
+		writemem e6070298 0
+		writemem e60702a0 0
+		writemem e60702a0 1
+		writemem e6870298 0
+		writemem e68782a0 0
+		writemem e68782a0 1
+		echo "calcmd 29 0 12 0 1 1 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 1 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 2 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 1 4 15" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 3 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 2 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 29 0 12 0 1 0 2 0 3 0 4 12" > /sys/devices/qdrv/control
+		echo "calcmd 22 0 4 0" > /sys/devices/qdrv/control
+		echo "End TX LO and IQ Calibration"
+
+		if [ $runRXIQ -eq 1 ]
+		then
+		echo "Run RX IQ Calibration"
+		writerfmem 0 105 c02
+		writerfmem 0 106 c02
+		writerfmem 1 105 c02
+		writerfmem 1 106 c02
+		echo "  Chain 0"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 0 4 241 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 1"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 1 4 241 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 2"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 0 4 241 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 3"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 1 4 241 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 0"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 0 4 200 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 1"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 1 4 200 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 2"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 0 4 200 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 3"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 1 4 200 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 0"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 0 4 169 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 1"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 1 4 169 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 2"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 0 4 169 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 3"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 1 4 169 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 0"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 0 4 153 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 1"
+		echo "calcmd 30 0 14 0 1 2 2 0 3 1 4 153 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 2"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 0 4 153 5 0" > /sys/devices/qdrv/control
+		echo "  Chain 3"
+		echo "calcmd 30 0 14 0 1 2 2 1 3 1 4 153 5 0" > /sys/devices/qdrv/control
+		echo "calcmd 21 0 4 0" > /sys/devices/qdrv/control
+		writerfmem 0 105 402
+		writerfmem 0 106 402
+		writerfmem 1 105 402
+		writerfmem 1 106 402
+		echo "End RX IQ Calibration"
+		else 
+		echo "Skipping RXIQ CAL"
+		fi
+
+		echo "===========   END OF CHANNEL AT $1  =============="
+		echo " "
+		echo " "
+		shift
+        done
+fi
+
+echo "********** SAVE TO FLASH **********"
+echo "calcmd 17 0 4 0" > /sys/devices/qdrv/control
+
+echo "INTERNAL CALIBRATION DONE"

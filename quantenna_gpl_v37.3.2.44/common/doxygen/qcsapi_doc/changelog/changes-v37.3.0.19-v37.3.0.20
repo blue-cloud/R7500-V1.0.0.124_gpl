@@ -1,0 +1,14 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_19_TO_v37_3_0_20 Version v37.3.0.19 to version v37.3.0.20 changes
+ *
+ * \subsection v37_3_0_19_TO_v37_3_0_20Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.19 and v37.3.0.20
+ *
+ * \li \ref qcsapi_set_emac_switch
+ * \li \ref qcsapi_send_file
+ * \li \ref qcsapi_get_emac_switch
+ * \li \ref qcsapi_eth_dscp_map
+ */

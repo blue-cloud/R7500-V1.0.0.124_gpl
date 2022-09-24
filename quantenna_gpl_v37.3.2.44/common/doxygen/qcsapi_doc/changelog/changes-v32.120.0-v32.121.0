@@ -1,0 +1,13 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_120_0_TO_v32_121_0 Version v32.120.0 to version v32.121.0 changes
+ *
+ * \subsection v32_120_0_TO_v32_121_0Added Added functions
+ *
+ * The following functions were added between versions v32.120.0 and v32.121.0
+ *
+ * \li \ref qcsapi_eth_phy_power_control
+ * \li \ref qcsapi_wifi_create_restricted_bss
+ * \li \ref qcsapi_wifi_test_traffic
+ */

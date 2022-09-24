@@ -1,0 +1,18 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_10_TO_v37_3_0_11 Version v37.3.0.10 to version v37.3.0.11 changes
+ *
+ * \subsection v37_3_0_10_TO_v37_3_0_11Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.10 and v37.3.0.11
+ * \li \ref qcsapi_wifi_enable_tdls_over_qhop
+ *
+ * \subsection v37_3_0_10_TO_v37_3_0_11Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.10 and v37.3.0.11
+ *  - \ref qcsapi_wifi_tdls_operate
+ *    - Old prototype: int qcsapi_wifi_tdls_operate(const char *ifname, qcsapi_tdls_oper operate, const char *mac_addr_str);
+ *    - New prototype: int qcsapi_wifi_tdls_operate(const char *ifname, qcsapi_tdls_oper operate, const char *mac_addr_str, int cs_interval);
+ */
+

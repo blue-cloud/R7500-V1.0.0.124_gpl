@@ -1,0 +1,18 @@
+Build Instructions
+
+
+Note: 1) This package has been built successfully on Ubuntu with gcc 4.5.2.
+      2) Compiling this package on platforms other than Ubuntu may have unexpected results.
+
+How to install toochain and build image file:
+1. unzip R7500-V1.0.0.92_and_qtn_gpl_src.zip
+2. unzip quantenna_gpl_v37.3.2.44.zip
+3. cd quantenna_gpl_v37.3.2.44
+4. sudo chmod a+x Qenvinstaller.bin
+5. sudo ./Qenvinstaller.bin
+6. make topaz_pcie_config
+7. make fromscratch
+8. rm pcie*.tar
+9. make image
+
+After compile, you will find topaz-linux.lzma.img and u-boot-mini-piggy-bin u-boot.bin under ./tftp folder.

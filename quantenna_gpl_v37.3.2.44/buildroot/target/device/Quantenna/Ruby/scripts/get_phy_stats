@@ -1,0 +1,9 @@
+#!/bin/ash
+
+qdrvcmd get 0 muc_stats $* title
+while [ 1 ]
+do
+	iwpriv wifi0 set_crc_error 1
+	qdrvcmd get 0 muc_stats $*
+	sleep 2
+done

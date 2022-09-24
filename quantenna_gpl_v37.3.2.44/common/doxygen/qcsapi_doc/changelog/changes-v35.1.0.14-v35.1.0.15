@@ -1,0 +1,11 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v35_1_0_14_TO_v35_1_0_15 Version v35.1.0.14 to version v35.1.0.15 changes
+ *
+ * \subsection v35_1_0_14_TO_v35_1_0_15Added Added functions
+ *
+ * The following functions were added between versions v35.1.0.14 and v35.1.0.15
+ *
+ * \li \ref qcsapi_SSID_remove_SSID
+ */

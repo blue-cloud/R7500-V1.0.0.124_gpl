@@ -1,0 +1,7 @@
+#!/bin/sh
+
+reg_set=$1
+buf_num=$2
+
+qdrvcmd "dump hwreg $reg_set $buf_num"
+[ "$buf_num" = "1" ] && qdrvcmd "dump hwregcmp $reg_set"

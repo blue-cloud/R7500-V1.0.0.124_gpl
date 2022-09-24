@@ -1,0 +1,13 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_15_TO_v37_3_0_16 Version v37.3.0.15 to version v37.3.0.16 changes
+ *
+ * \subsection v37_3_0_15_TO_v37_3_0_16Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.15 and v37.3.0.16
+ *
+ * \li \ref qcsapi_get_random_seed
+ * \li \ref qcsapi_set_random_seed
+ * \li \ref qcsapi_wifi_get_link_quality_max
+ */

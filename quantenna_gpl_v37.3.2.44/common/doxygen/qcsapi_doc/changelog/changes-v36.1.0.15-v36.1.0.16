@@ -1,0 +1,15 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v36_1_0_15_TO_v36_1_0_16 Version v36.1.0.15 to version v36.1.0.16 changes
+ *
+ * \subsection v36_1_0_15_TO_v36_1_0_16Added Added functions
+ *
+ * The following functions were added between versions v36.1.0.15 and v36.1.0.16
+ *
+ * \li \ref qcsapi_wifi_enable_tdls
+ * \li \ref qcsapi_wifi_get_tdls_status
+ * \li \ref qcsapi_wifi_get_tdls_params
+ * \li \ref qcsapi_wifi_tdls_operate
+ * \li \ref qcsapi_wifi_set_tdls_params
+ */

@@ -1,0 +1,16 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_90_0_TO_v32_91_0 Version v32.90.0 to version v32.91.0 changes
+ *
+ * \subsection v32_90_0_TO_v32_91_0Added Added functions
+ *
+ * The following functions were added between versions v32.90.0 and v32.91.0
+ *
+ * \li \ref qcsapi_wps_set_access_control
+ * \li \ref qcsapi_wps_get_access_control
+ * \li \ref qcsapi_wifi_get_assoc_records
+ * \li \ref qcsapi_wifi_start_dfs_reentry
+ * \li \ref qcsapi_wifi_start_scan_ext
+ * \li \ref qcsapi_wifi_get_csw_records
+ */

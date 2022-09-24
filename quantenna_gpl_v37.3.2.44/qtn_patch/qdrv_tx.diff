@@ -1,0 +1,25 @@
+1183,1192c1183,1195
+< 		if (arp->ea_hdr.ar_op == __constant_htons(ARPOP_REQUEST)) {
+< 			ipaddr = get_unaligned((uint32_t *)&arp->arp_tpa);
+< 		} else if (arp->ea_hdr.ar_op == __constant_htons(ARPOP_REPLY)) {
+< 			ipaddr = get_unaligned((uint32_t *)&arp->arp_spa);
+< 		}
+< 
+< 		if (qdrv_is_bridge_ipaddr(qw, ipaddr)) {
+< 			qdrv_tx_skb_drop(vap, qw, ni, skb, TRACE_IPPKT_DROP_RSN_RGMII);
+< 			return NET_XMIT_DROP;
+< 		}
+---
+> 			if (arp->ea_hdr.ar_op == __constant_htons(ARPOP_REQUEST) || (arp->ea_hdr.ar_op == __constant_htons(ARPOP_REPLY))) {
+> 				ipaddr = get_unaligned((uint32_t *)&arp->arp_tpa);
+> 				if (qdrv_is_bridge_ipaddr(qw, ipaddr)) {		
+> 					qdrv_tx_skb_drop(vap, qw, ni, skb, TRACE_IPPKT_DROP_RSN_RGMII);		
+> 					return NET_XMIT_DROP;
+> 				} else {
+> 					ipaddr = get_unaligned((uint32_t *)&arp->arp_spa);
+> 					if (qdrv_is_bridge_ipaddr(qw, ipaddr)) {					
+> 						qdrv_tx_skb_drop(vap, qw, ni, skb, TRACE_IPPKT_DROP_RSN_RGMII);		
+> 						return NET_XMIT_DROP;					
+> 					}
+> 				}
+> 			}

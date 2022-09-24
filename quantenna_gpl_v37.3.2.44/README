@@ -1,0 +1,21 @@
+=====================================================================================================
+Compile Method:
+
+Enter into QTN SDK and issue below commands.
+
+1. rm .git -rf
+2. make topaz_pcie_config
+3. make fromscratch
+
+And you can find u-boot and qtn fw under SDK/tftp
+
+=====================================================================================================
+If you see QTN FW cannot bring up, please try to issue below commands after going through above method.
+(You have to compile sdk first, and then compile gpl code)
+
+Copy gpl tar ball like quantenna-sdk-v36.6.0.XX.tar.gz into QTN SDK and decompression tar ball.
+
+1. make topaz_pcie_config
+2. make fromscratch
+
+And you can find u-boot and QTN fw under SDK/tftp

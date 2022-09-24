@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+
+base_scripts="/scripts"
+
+. $base_scripts/start-helpers.sh
+
+start() {
+    export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/scripts:/usr/local/bin
+    export LD_LIBRARY_PATH=/lib:/usr/lib
+
+    local is_change=0
+
+    # set max power index as 24 db
+    set_bootval max_tx_power 24
+
+    # QTN support stored power tables in FW. Therefore, old power tables in flash
+    # is unnecessary.
+    cd /proc/bootcfg/
+    for pt in `ls tx_power_QSR1000_*`; do
+        echo "delete $pt" > /proc/bootcfg/env
+        is_change=1
+    done
+
+    [ "$is_change" -eq "1" ] && sync
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        exit 1
+        ;;
+  restart|reload)
+        exit 1
+        ;;
+  *)
+        echo $"Usage: $0 {start}"
+        exit 1
+esac
+
+exit $?

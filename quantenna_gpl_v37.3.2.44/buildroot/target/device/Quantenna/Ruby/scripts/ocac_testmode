@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "set test1 0x2" > /sys/devices/qdrv/control
+call_qcsapi set_ocac_report_only wifi0 1
+call_qcsapi set_ocac_thrshld wifi0 fat 1

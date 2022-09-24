@@ -1,0 +1,4 @@
+#!/bin/ash
+writemem e600$1 $2
+writemem e680$1 $2
+

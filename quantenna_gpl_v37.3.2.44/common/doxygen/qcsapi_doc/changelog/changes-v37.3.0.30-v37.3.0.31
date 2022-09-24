@@ -1,0 +1,16 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_30_TO_v37_3_0_31 Version v37.3.0.30 to version v37.3.0.31 changes
+ *
+ * \subsection v37_3_0_30_TO_v37_3_0_31Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.30 and v37.3.0.31
+ *
+ * \li \ref qcsapi_wifi_set_chan_power_table
+ * \li \ref qcsapi_wifi_clear_mac_address_reserve
+ * \li \ref qcsapi_wifi_get_mac_address_reserve
+ * \li \ref qcsapi_wifi_get_scs_score_report
+ * \li \ref qcsapi_wifi_set_mac_address_reserve
+ * \li \ref qcsapi_wifi_get_chan_power_table
+ */

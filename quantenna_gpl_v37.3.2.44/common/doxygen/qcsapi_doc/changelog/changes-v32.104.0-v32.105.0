@@ -1,0 +1,12 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v32_104_0_TO_v32_105_0 Version v32.104.0 to version v32.105.0 changes
+ *
+ * \subsection v32_104_0_TO_v32_105_0Added Added functions
+ *
+ * The following functions were added between versions v32.104.0 and v32.105.0
+ *
+ * \li \ref qcsapi_get_max_bitrate
+ * \li \ref qcsapi_set_max_bitrate
+ */

@@ -1,0 +1,22 @@
+/**
+ * \page ChangeLog
+ *
+ * \section v37_3_0_29_TO_v37_3_0_30 Version v37.3.0.29 to version v37.3.0.30 changes
+ *
+ * \subsection v37_3_0_29_TO_v37_3_0_30Added Added functions
+ *
+ * The following functions were added between versions v37.3.0.29 and v37.3.0.30
+ * \li \ref qcsapi_wifi_set_sys_time
+ * \li \ref qcsapi_get_eth_info
+ * \li \ref qcsapi_wifi_ssid_get_bssid
+ * \li \ref qcsapi_wifi_get_sys_time
+ * \li \ref qcsapi_wifi_ssid_set_bssid
+ *
+ * \subsection v37_3_0_29_TO_v37_3_0_30Proto Function prototype changes
+ *
+ * The following function prototypes were modified between versions v37.3.0.29 and v37.3.0.30
+ *  - \ref qcsapi_enable_vlan_pass_through
+ *    - Old prototype: int qcsapi_enable_vlan_pass_through(int enabled);
+ *    - New prototype: int qcsapi_enable_vlan_pass_through(const char *ifname, int enabled);
+ */
+
